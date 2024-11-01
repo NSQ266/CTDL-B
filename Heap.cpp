@@ -55,7 +55,7 @@ public:
         buildHeap();
     }
 
-    void pop() { // X�a ph?n t? g?c -> Heapify
+    void pop() { // Xóa phần tử gốc -> Heapify
         if (!empty()) {
             swap(heap[1], heap.back());
             heap.pop_back();
@@ -65,7 +65,7 @@ public:
         }
     }
 
-    void push(const T& element) { // Th�m ph?n t? v�o c�y heap -> Heapify
+    void push(const T& element) { // Thêm phần tử vào cây heap -> Heapify
         heap.push_back(element);
         int index = heap.size() - 1;
 
@@ -75,7 +75,7 @@ public:
         }
     }
 
-    T top() { // L?y ra ph?n t? g?c c?a c�y heap
+    T top() { // Láy ra phần tử gốc của cây heap
         if (!empty()) {
             return heap[1];
         } else {
