@@ -8,11 +8,11 @@ struct edge {
     int start, end, weight;
 };
 
-int m, n; // m: so luong dinh / n: so luong canh
-vector<pair<int, int>> adjacent[maxn]; // canh ke = [{trongSo, dinh}, ...]
-bool used[maxn];  // used[i] == true => i thuoc V(MST)
+int m, n; // m: số lượng đỉnh / n: số lượng cạnh
+vector<pair<int, int>> adjacent[maxn]; // cạnh kề = [{trọng số , đỉnh}, ...]
+bool used[maxn];  // used[i] == true => i thuộc V(MST)
 int parent[maxn]; // ??? 
-int d[maxn];      // Luu trong so nho nhat cua tat ca cac canh noi voi dinh i
+int d[maxn];      // Lưu trọng số nhỏ nhất của tất cả các cạnh nối với đỉnh i
 
 void nhap() {
     cin >> n >> m;
@@ -28,8 +28,8 @@ void nhap() {
 
 void prim(int u) {
     PriorityQueue<pair<int, int>, vector<pair<int, int>>> Q;
-    vector<edge> MST; // cay khung nho nhat
-    int MSTdistance = 0; // chieu dai cay khung
+    vector<edge> MST; // cây khung nhỏ nhất
+    int MSTdistance = 0; // chiều dài cây khungkhung
     Q.push({0, u});
     while (!Q.empty()) {
         pair<int, int> top = Q.top();
@@ -43,7 +43,7 @@ void prim(int u) {
         if (u != vertex) {
             MST.push_back({vertex, parent[vertex], weight});
         }
-        // Duyet tat ca cac dinh ke
+        // Duyệt tất cả các đỉnh kề
         for (auto it : adjacent[vertex]) {
             int nWeight = it.second;
             int nVertex = it.first;
