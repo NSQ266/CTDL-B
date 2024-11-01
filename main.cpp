@@ -11,7 +11,7 @@ struct edge {
 int m, n; // m: số lượng đỉnh / n: số lượng cạnh
 vector<pair<int, int>> adjacent[maxn]; // cạnh kề = [{trọng số , đỉnh}, ...]
 bool used[maxn];  // used[i] == true => i thuộc V(MST)
-int parent[maxn]; // ??? 
+int parent[maxn]; // Lưu đỉnh cha
 int d[maxn];      // Lưu trọng số nhỏ nhất của tất cả các cạnh nối với đỉnh i
 
 void nhap() {
